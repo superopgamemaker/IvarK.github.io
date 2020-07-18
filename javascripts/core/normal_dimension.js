@@ -4,8 +4,8 @@ function getDimensionFinalMultiplier(tier) {
 	if (player.currentChallenge == "postcngm3_2") return getInfinityPowerEffect()
 	if (player.currentEternityChall == "eterc11") return getInfinityPowerEffect().times(Decimal.pow(getDimensionBoostPower(), player.resets - tier + 1).max(1))
 	if ((inNC(7) || player.currentChallenge == "postcngm3_3") && !player.galacticSacrifice) {
-		if (tier == 4) mult = mult.pow(14)
-		if (tier == 2) mult = mult.pow(17)
+		if (tier == 4) mult = mult.pow(1.4)
+		if (tier == 2) mult = mult.pow(1.7)
 	}
 
 	mult = mult.times(player.achPow)
@@ -23,8 +23,8 @@ function getDimensionFinalMultiplier(tier) {
 	if (!player.challenges.includes("postcngmm_1")&&player.currentChallenge!="postcngmm_1") mult = mult.times(timeAndDimMult)
 	if (tier == 1) {
 		if (player.infinityUpgrades.includes("unspentBonus")) mult = mult.times(unspentBonus);
-		if (player.achievements.includes("r28")) mult = mult.times(2);
-		if (player.achievements.includes("r31")) mult = mult.times(1.5);
+		if (player.achievements.includes("r28")) mult = mult.times(1.1);
+		if (player.achievements.includes("r31")) mult = mult.times(1.05);
 		if (player.achievements.includes("r71")) mult = mult.times(player.galacticSacrifice?909:3);
 		if (player.achievements.includes("r68")) mult = mult.times(player.galacticSacrifice?5:1.5);
 		if (player.galacticSacrifice) if (player.achievements.includes("r64")) mult = mult.times(1e6);
